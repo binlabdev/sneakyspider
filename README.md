@@ -81,4 +81,4 @@ Click here to learn more about [Html Agility Pack](https://html-agility-pack.net
 Sneaky Scraper is still under development. Documentation will bee here soon...
 
 #
-(c) 2019 Binlab. 
+&copy; 2019 Binlab. 
