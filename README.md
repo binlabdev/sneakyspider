@@ -75,10 +75,10 @@ public async Task<ActionResult> Crawler(){
 ```
 
 The method ```getAllLinkNodes()``` will return a list of ```HtmlNode``` from the ```HtmlDocument```
-Click here to learn more about [Html Agility Pack](https://html-agility-pack.net/) visit there website. It's a great tool for web scraping
+Click here to learn more about [Html Agility Pack](https://html-agility-pack.net/) visit their website. It's a great tool for web scraping
 
 # Documentation
-Sneaky Scraper is still under development. Documentation will bee here soon...
+Sneaky Scraper is still under development. Documentation will be here soon...
 
 #
 &copy; 2019 Binlab. 
