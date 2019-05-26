@@ -27,7 +27,18 @@ public async Task<ActionResult> Crawler(){
     return View();
 }
 ```
-The method ```setRootUrl()``` will give a point to crawler from where the crawler will start crawling. After that method ```startCrawl()``` will start crawling the web and gathering data from the web pages. This initializer is taking a parameter for the maximum itereration means how many links it will crawl. Then ```crawler.getGraph()``` will return a ```Graph``` object and using ```.webify()``` will return a result for showing data in a html page. If you want to get the data of a particuler Node from the graph check the following example:
+The method ```setRootUrl()``` will give a point to crawler from where the crawler will start crawling. After that method ```startCrawl()``` will start crawling the web and gathering data from the web pages. This initializer is taking a parameter for the maximum itereration means how many links it will crawl. Then ```crawler.getGraph()``` will return a ```Graph``` object and using ```.webify()``` will return a result for showing data in a html page: <br>
+
+```
+graph = {
+    Link Node 1: [List of edges, number of edges],
+    Link Node 2: [List of edges, number of edges]
+    ......
+}
+
+```
+
+If you want to get the data of a particuler Node from the graph check the following example:
 
 ```cs
 using System.Threading.Tasks;
@@ -38,6 +49,28 @@ using SneakySpider.GraphModel;
 public async Task<ActionResult> Crawler(){
     Crawler crawler = new Crawler();
     crawler.setRootUrl("http://www.bishalsarker.com");
+    await crawler.startCrawl(10);
+
+    var myNode = crawler.getGraph().getAllNodes()[0];
+    HtmlDocument myNodeData = crawler.getNodeData(myNode);
+    
+    return View();
+}
+```
+
+You can even add rules to the crawler so that you can the specific links. To add rules use ```addRule()``` method. This method takes a parameter of [Regular Expression](https://regexone.com) patterns as a ```string```. You can add multiple of rules. For example,
+
+```cs
+using System.Threading.Tasks;
+using HtmlAgilityPack;
+using SneakySpider;
+using SneakySpider.GraphModel;
+
+public async Task<ActionResult> Crawler(){
+    Crawler crawler = new Crawler();
+    crawler.setRootUrl("http://www.bishalsarker.com");
+    crawler.addRule("/post/[^$]");
+    crawler.addRule("en.wikipedia.org");
     await crawler.startCrawl(10);
 
     var myNode = crawler.getGraph().getAllNodes()[0];
