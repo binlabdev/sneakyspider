@@ -1,6 +1,8 @@
 # Sneaky Spider
 Sneaky Spider is a C# library for web crawling and scraping. It is designed for simplicity and flexibility. Easy to install and easy to use. Surf the whole **World Wide Web** in just 3 Lines.
 
+Developed with :heart: by [Binlab](https://binlabdev.github.io).
+
 # Installing
 Download or Clone the project. <br>
 Open **Visual Studio** and open the **Solution Explorer**.<br>
